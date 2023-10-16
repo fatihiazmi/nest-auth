@@ -8,10 +8,14 @@ export class UserService{
     constructor(@InjectRepository(User) protected readonly userRepository: Repository<User>){}
 
     async save(body){
-        return await this.userRepository.save(body);
+        return this.userRepository.save(body);
     }
 
     async findOneBy(options){
-        return await this.userRepository.findOneBy(options);
+        return this.userRepository.findOneBy(options);
+    }
+
+    async update(id:number, options){
+        return this.userRepository.update(id, options);
     }
 }
